@@ -24,7 +24,7 @@ roles:
         type: "pull"
     task:
       load: Dispatcher
-  - name: "QC-TASK-RUNNER-daqTask"
+  - name: "QC-TASK-RUNNER-daqTask-v0_5_0"
     connect:
       - name: "from_internal-dpl-clock_to_QC-TASK-RUNNER-daqTask"
         target: "{{parent}}.internal-dpl-clock:from_internal-dpl-clock_to_QC-TASK-RUNNER-daqTask"
