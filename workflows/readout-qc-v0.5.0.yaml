@@ -37,7 +37,7 @@ roles:
   - name: "QC-CHECK-RUNNER-08lS"
     connect:
       - name: "from_QC-TASK-RUNNER-daqTask_to_QC-CHECK-RUNNER-08lS"
-        target: "{{parent}}.QC-TASK-RUNNER-daqTask:from_QC-TASK-RUNNER-daqTask_to_QC-CHECK-RUNNER-08lS"
+        target: "{{parent}}.QC-TASK-RUNNER-daqTask-v0_5_0:from_QC-TASK-RUNNER-daqTask_to_QC-CHECK-RUNNER-08lS"
         type: "pull"
     task:
       load: QC-CHECK-RUNNER-08lS
