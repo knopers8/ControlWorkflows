@@ -33,7 +33,7 @@ roles:
         target: "{{parent}}.Dispatcher:from_Dispatcher_to_QC-TASK-RUNNER-daqTask"
         type: "pull"
     task:
-      load: QC-TASK-RUNNER-daqTask
+      load: QC-TASK-RUNNER-daqTask-v0_5_0
   - name: "QC-CHECK-RUNNER-08lS"
     connect:
       - name: "from_QC-TASK-RUNNER-daqTask_to_QC-CHECK-RUNNER-08lS"
