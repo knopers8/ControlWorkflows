@@ -1,0 +1,256 @@
+name: mergers-example
+defaults:
+  monitoring_url: "no-op://"
+  user: "flp"
+  dpl_config: "/etc/flp.d/mergers-example/mergers-example.dpl.json"
+roles:
+  - name: "internal-dpl-clock"
+    connect:
+    task:
+      load: mergers-example-internal-dpl-clock
+  - name: "producer-custom0"
+    connect:
+    - name: from_internal-dpl-clock_to_producer-custom0
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.internal-dpl-clock:from_internal-dpl-clock_to_producer-custom0"
+      rateLogging: 0
+    task:
+      load: mergers-example-producer-custom0
+  - name: "producer-custom1"
+    connect:
+    - name: from_internal-dpl-clock_to_producer-custom1
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.internal-dpl-clock:from_internal-dpl-clock_to_producer-custom1"
+      rateLogging: 0
+    task:
+      load: mergers-example-producer-custom1
+  - name: "producer-custom2"
+    connect:
+    - name: from_internal-dpl-clock_to_producer-custom2
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.internal-dpl-clock:from_internal-dpl-clock_to_producer-custom2"
+      rateLogging: 0
+    task:
+      load: mergers-example-producer-custom2
+  - name: "producer-custom3"
+    connect:
+    - name: from_internal-dpl-clock_to_producer-custom3
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.internal-dpl-clock:from_internal-dpl-clock_to_producer-custom3"
+      rateLogging: 0
+    task:
+      load: mergers-example-producer-custom3
+  - name: "producer-histo0"
+    connect:
+    - name: from_internal-dpl-clock_to_producer-histo0
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.internal-dpl-clock:from_internal-dpl-clock_to_producer-histo0"
+      rateLogging: 0
+    task:
+      load: mergers-example-producer-histo0
+  - name: "producer-histo1"
+    connect:
+    - name: from_internal-dpl-clock_to_producer-histo1
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.internal-dpl-clock:from_internal-dpl-clock_to_producer-histo1"
+      rateLogging: 0
+    task:
+      load: mergers-example-producer-histo1
+  - name: "producer-histo2"
+    connect:
+    - name: from_internal-dpl-clock_to_producer-histo2
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.internal-dpl-clock:from_internal-dpl-clock_to_producer-histo2"
+      rateLogging: 0
+    task:
+      load: mergers-example-producer-histo2
+  - name: "producer-histo3"
+    connect:
+    - name: from_internal-dpl-clock_to_producer-histo3
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.internal-dpl-clock:from_internal-dpl-clock_to_producer-histo3"
+      rateLogging: 0
+    task:
+      load: mergers-example-producer-histo3
+  - name: "producer-histo4"
+    connect:
+    - name: from_internal-dpl-clock_to_producer-histo4
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.internal-dpl-clock:from_internal-dpl-clock_to_producer-histo4"
+      rateLogging: 0
+    task:
+      load: mergers-example-producer-histo4
+  - name: "producer-histo5"
+    connect:
+    - name: from_internal-dpl-clock_to_producer-histo5
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.internal-dpl-clock:from_internal-dpl-clock_to_producer-histo5"
+      rateLogging: 0
+    task:
+      load: mergers-example-producer-histo5
+  - name: "producer-histo6"
+    connect:
+    - name: from_internal-dpl-clock_to_producer-histo6
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.internal-dpl-clock:from_internal-dpl-clock_to_producer-histo6"
+      rateLogging: 0
+    task:
+      load: mergers-example-producer-histo6
+  - name: "producer-histo7"
+    connect:
+    - name: from_internal-dpl-clock_to_producer-histo7
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.internal-dpl-clock:from_internal-dpl-clock_to_producer-histo7"
+      rateLogging: 0
+    task:
+      load: mergers-example-producer-histo7
+  - name: "MERGER-custom1l-0"
+    connect:
+    - name: from_internal-dpl-clock_to_MERGER-custom1l-0
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.internal-dpl-clock:from_internal-dpl-clock_to_MERGER-custom1l-0"
+      rateLogging: 0
+    - name: from_producer-custom0_to_MERGER-custom1l-0
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.producer-custom0:from_producer-custom0_to_MERGER-custom1l-0"
+      rateLogging: 0
+    - name: from_producer-custom1_to_MERGER-custom1l-0
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.producer-custom1:from_producer-custom1_to_MERGER-custom1l-0"
+      rateLogging: 0
+    - name: from_producer-custom2_to_MERGER-custom1l-0
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.producer-custom2:from_producer-custom2_to_MERGER-custom1l-0"
+      rateLogging: 0
+    - name: from_producer-custom3_to_MERGER-custom1l-0
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.producer-custom3:from_producer-custom3_to_MERGER-custom1l-0"
+      rateLogging: 0
+    task:
+      load: mergers-example-MERGER-custom1l-0
+  - name: "MERGER-histos1l-0"
+    connect:
+    - name: from_internal-dpl-clock_to_MERGER-histos1l-0
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.internal-dpl-clock:from_internal-dpl-clock_to_MERGER-histos1l-0"
+      rateLogging: 0
+    - name: from_producer-histo0_to_MERGER-histos1l-0
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.producer-histo0:from_producer-histo0_to_MERGER-histos1l-0"
+      rateLogging: 0
+    - name: from_producer-histo1_to_MERGER-histos1l-0
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.producer-histo1:from_producer-histo1_to_MERGER-histos1l-0"
+      rateLogging: 0
+    - name: from_producer-histo2_to_MERGER-histos1l-0
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.producer-histo2:from_producer-histo2_to_MERGER-histos1l-0"
+      rateLogging: 0
+    task:
+      load: mergers-example-MERGER-histos1l-0
+  - name: "MERGER-histos1l-1"
+    connect:
+    - name: from_internal-dpl-clock_to_MERGER-histos1l-1
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.internal-dpl-clock:from_internal-dpl-clock_to_MERGER-histos1l-1"
+      rateLogging: 0
+    - name: from_producer-histo3_to_MERGER-histos1l-1
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.producer-histo3:from_producer-histo3_to_MERGER-histos1l-1"
+      rateLogging: 0
+    - name: from_producer-histo4_to_MERGER-histos1l-1
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.producer-histo4:from_producer-histo4_to_MERGER-histos1l-1"
+      rateLogging: 0
+    - name: from_producer-histo5_to_MERGER-histos1l-1
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.producer-histo5:from_producer-histo5_to_MERGER-histos1l-1"
+      rateLogging: 0
+    task:
+      load: mergers-example-MERGER-histos1l-1
+  - name: "MERGER-histos1l-2"
+    connect:
+    - name: from_internal-dpl-clock_to_MERGER-histos1l-2
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.internal-dpl-clock:from_internal-dpl-clock_to_MERGER-histos1l-2"
+      rateLogging: 0
+    - name: from_producer-histo6_to_MERGER-histos1l-2
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.producer-histo6:from_producer-histo6_to_MERGER-histos1l-2"
+      rateLogging: 0
+    - name: from_producer-histo7_to_MERGER-histos1l-2
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.producer-histo7:from_producer-histo7_to_MERGER-histos1l-2"
+      rateLogging: 0
+    task:
+      load: mergers-example-MERGER-histos1l-2
+  - name: "MERGER-histos2l-0"
+    connect:
+    - name: from_internal-dpl-clock_to_MERGER-histos2l-0
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.internal-dpl-clock:from_internal-dpl-clock_to_MERGER-histos2l-0"
+      rateLogging: 0
+    - name: from_MERGER-histos1l-0_to_MERGER-histos2l-0
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.MERGER-histos1l-0:from_MERGER-histos1l-0_to_MERGER-histos2l-0"
+      rateLogging: 0
+    - name: from_MERGER-histos1l-1_to_MERGER-histos2l-0
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.MERGER-histos1l-1:from_MERGER-histos1l-1_to_MERGER-histos2l-0"
+      rateLogging: 0
+    - name: from_MERGER-histos1l-2_to_MERGER-histos2l-0
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.MERGER-histos1l-2:from_MERGER-histos1l-2_to_MERGER-histos2l-0"
+      rateLogging: 0
+    task:
+      load: mergers-example-MERGER-histos2l-0
+  - name: "printer-custom"
+    connect:
+    - name: from_MERGER-custom1l-0_to_printer-custom
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.MERGER-custom1l-0:from_MERGER-custom1l-0_to_printer-custom"
+      rateLogging: 0
+    task:
+      load: mergers-example-printer-custom
+  - name: "printer-bins"
+    connect:
+    - name: from_MERGER-histos2l-0_to_printer-bins
+      type: pull
+      transport: shmem
+      target: "{{ Parent().Path }}.MERGER-histos2l-0:from_MERGER-histos2l-0_to_printer-bins"
+      rateLogging: 0
+    task:
+      load: mergers-example-printer-bins
