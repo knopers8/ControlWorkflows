@@ -98,7 +98,7 @@ command:
     cat {{ dpl_config }} | o2-mergers-topology-example
   user: "{{ user }}"
   arguments:
-    - "-b")
+    - "-b"
     - "--monitoring-backend"
     - "{{ monitoring_qc_url }}"
     - "--session"
