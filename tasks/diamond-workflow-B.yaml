@@ -15,7 +15,7 @@ command:
   shell: true
   value: >-
     source /etc/profile.d/modules.sh && MODULEPATH={{ modulepath }} module load O2 QualityControl Control-OCCPlugin &&
-    cat {{ dpl_config }} | /home/pkonopka/alice/O2/cmake-build-debug/stage/bin/o2-testworkflows-diamond-workflow
+    cat {{ dpl_config }} | o2-testworkflows-diamond-workflow
   user: "{{ user }}"
   arguments:
     - "-b"
