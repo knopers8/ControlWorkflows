@@ -23,7 +23,7 @@ command:
     - "{{ monitoring_qc_url }}"
     - "--session"
     - "default"
-    - "'--id'"
+    - "--id"
     - "'MERGER-custom1l-0'"
     - "'--shm-monitor'"
     - "'false'"

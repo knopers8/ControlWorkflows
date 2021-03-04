@@ -18,7 +18,7 @@ command:
     - "{{ monitoring_qc_url }}"
     - "--session"
     - "default"
-    - "'--id'"
+    - "--id"
     - "'printer-custom'"
     - "'--shm-monitor'"
     - "'false'"

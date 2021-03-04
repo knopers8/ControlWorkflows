@@ -23,7 +23,7 @@ command:
     - "{{ monitoring_qc_url }}"
     - "--session"
     - "default"
-    - "'--id'"
+    - "--id"
     - "'producer-histo4'"
     - "'--shm-monitor'"
     - "'false'"

@@ -23,7 +23,7 @@ command:
     - "{{ monitoring_qc_url }}"
     - "--session"
     - "default"
-    - "'--id'"
+    - "--id"
     - "'producer-custom0'"
     - "'--shm-monitor'"
     - "'false'"
