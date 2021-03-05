@@ -1,0 +1,89 @@
+name: tst-proxies-readout-proxy
+defaults:
+control: 
+  mode: "fairmq"
+wants: 
+  cpu: 0.15
+  memory: 128
+bind: 
+  - name: from_readout-proxy_to_dpl-output-proxy
+    type: push
+    transport: shmem
+    addressing: ipc
+    rateLogging: 0
+command:
+  shell: true
+  value: >-
+    source /etc/profile.d/modules.sh && MODULEPATH={{ modulepath }} module load O2 QualityControl Control-OCCPlugin &&
+    cat {{ dpl_config }} | o2-dpl-raw-proxy
+  user: "{{ user }}"
+  arguments:
+    - "-b"
+    - "--monitoring-backend"
+    - "{{ monitoring_qc_url }}"
+    - "--session"
+    - "default"
+    - "--id"
+    - "'readout-proxy'"
+    - "--shm-monitor"
+    - "'false'"
+    - "--log-color"
+    - "'false'"
+    - "--aod-memory-rate-limit"
+    - "'0'"
+    - "--aod-writer-json"
+    - "''"
+    - "--aod-writer-keep"
+    - "''"
+    - "--aod-writer-ntfmerge"
+    - "-1"
+    - "--aod-writer-resfile"
+    - "''"
+    - "--aod-writer-resmode"
+    - "'RECREATE'"
+    - "--channel-prefix"
+    - "''"
+    - "--clone"
+    - "''"
+    - "--dataspec"
+    - "'A:TST/RAWDATA;dd:FLP/DISTSUBTIMEFRAME/0'"
+    - "--fairmq-ipc-prefix"
+    - "'/tmp/pkonopka'"
+    - "--fairmq-rate-logging"
+    - "'0'"
+    - "--fairmq-recv-buffer-size"
+    - "'1000'"
+    - "--fairmq-send-buffer-size"
+    - "'1000'"
+    - "--forwarding-destination"
+    - "'file'"
+    - "--forwarding-policy"
+    - "'dangling'"
+    - "--pipeline"
+    - "''"
+    - "--readers"
+    - "'1'"
+    - "--severity"
+    - "'info'"
+    - "--shm-mlock-segment"
+    - "'false'"
+    - "--shm-segment-id"
+    - "'0'"
+    - "--shm-segment-size"
+    - "'2000000000'"
+    - "--shm-throw-bad-alloc"
+    - "'true'"
+    - "--shm-zero-segment"
+    - "'false'"
+    - "--stacktrace-on-signal"
+    - "'all'"
+    - "--workflow-suffix"
+    - "''"
+    - "--end-value-enumeration"
+    - "-1"
+    - "--start-value-enumeration"
+    - "'0'"
+    - "--step-value-enumeration"
+    - "'1'"
+    - "--driver-client-backend"
+    - "'ws://0.0.0.0:25886'"
