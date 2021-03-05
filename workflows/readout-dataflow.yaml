@@ -170,6 +170,7 @@ roles:
               #   task:
               #     load: stfb-internal-dpl-global-binary-file-sink
           - name: tst-proxies
+            enabled: "{{  minimal_dpl_enabled == 'true' }}"
             defaults:
               dpl_config: "/etc/flp.d/minimal-dpl/minimal-dpl.dpl.json"
             roles:
