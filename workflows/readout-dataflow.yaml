@@ -1,5 +1,6 @@
 name: readout-dataflow
 defaults:
+  user: "flp"
   roc_ctp_emulator_enabled: "false"
   dd_enabled: "true"
   ddsched_enabled: "false"
