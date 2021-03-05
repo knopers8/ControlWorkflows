@@ -103,7 +103,7 @@ roles:
             connect:
               - name: downstream
                 type: pull
-                target: "{{ Parent().Path }}.minimal-dpl-wf.dpl-output-proxy:downstream"
+                target: "{{ Parent().Path }}.tst-proxies.dpl-output-proxy:downstream"
                 rateLogging: "10"
             task:
               load: stfsender
