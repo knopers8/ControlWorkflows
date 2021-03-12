@@ -261,7 +261,7 @@ roles:
                 - name: readout-proxy
                   type: pull
                   transport: shmem
-                  target: "{{ path_to_readout-proxy }}"
+                  target: "{{ Up(2).Path }}.stfb:dpl-chan"
                   rateLogging: 1
                 task:
                   load: tof-compressor-readout-proxy
