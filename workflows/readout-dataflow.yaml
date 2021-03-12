@@ -91,7 +91,7 @@ roles:
               #NOTE: plain stfbuilder TT (not stfbuilder-senderoutput) because we want dpl-chan
               load: stfbuilder
           - name: "stfs"
-            enabled: "{{stfb_standalone == 'false' && (qcdd_enabled == 'true' || dpl_workflow == 'qc-daq')}}"
+            enabled: "{{stfb_standalone == 'false' && qcdd_enabled == 'true'}}"
             vars:
               dd_discovery_stfs_id: stfs-{{ it }}-{{ NewID() }}
               stfs_input_channel_name: downstream
@@ -103,7 +103,7 @@ roles:
             task:
               load: stfsender
           - name: "stfs"
-            enabled: "{{stfb_standalone == 'false' && (minimal_dpl_enabled == 'true' || dpl_workflow == 'minimal-dpl')}}"
+            enabled: "{{stfb_standalone == 'false' && minimal_dpl_enabled == 'true'}}"
             vars:
               dd_discovery_stfs_id: stfs-{{ it }}-{{ NewID() }}
               stfs_input_channel_name: downstream
