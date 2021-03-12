@@ -76,7 +76,7 @@ roles:
       - name: "data-distribution-dpl"
         enabled: "{{(qcdd_enabled == 'true' || minimal_dpl_enabled == 'true' || dpl_workflow != 'none') && dd_enabled == 'true'}}"
         defaults:
-          path_to_readout-proxy: "{{ Parent().Path }}.data-distribution-dpl.stfb:dpl-chan"
+          path_to_readout-proxy: todo #"{{ Parent().Path }}.data-distribution-dpl.stfb:dpl-chan"
           roles:
           - name: "stfb"
             enabled: "{{stfb_standalone == 'false'}}"
