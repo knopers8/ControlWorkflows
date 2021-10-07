@@ -1,4 +1,4 @@
-name: mft-full-qcmn-remote
+name: mft-test2-full-qcmn-remote
 vars:
   dpl_command: >-
     o2-qc --config {{ qc_config_uri }} --remote -b
@@ -19,7 +19,7 @@ roles:
   - name: "internal-dpl-clock"
     connect:
     task:
-      load: mft-full-qcmn-remote-internal-dpl-clock
+      load: mft-test2-full-qcmn-remote-internal-dpl-clock
   - name: "QcMFTClusterTask-proxy"
     connect:
     - name: from_internal-dpl-clock_to_QcMFTClusterTask-proxy
@@ -35,7 +35,7 @@ roles:
       rateLogging: "{{ fmq_rate_logging }}"
       target: "tcp://*:47797"
     task:
-      load: mft-full-qcmn-remote-QcMFTClusterTask-proxy
+      load: mft-test2-full-qcmn-remote-QcMFTClusterTask-proxy
   - name: "QcMFTDigitTask-proxy"
     connect:
     - name: from_internal-dpl-clock_to_QcMFTDigitTask-proxy
@@ -51,7 +51,7 @@ roles:
       rateLogging: "{{ fmq_rate_logging }}"
       global: "QcMFTDigitTask-proxy"
     task:
-      load: mft-full-qcmn-remote-QcMFTDigitTask-proxy
+      load: mft-test2-full-qcmn-remote-QcMFTDigitTask-proxy
   - name: "QcMFTReadoutTask-proxy"
     connect:
     - name: from_internal-dpl-clock_to_QcMFTReadoutTask-proxy
@@ -67,7 +67,7 @@ roles:
       rateLogging: "{{ fmq_rate_logging }}"
       global: "QcMFTReadoutTask-proxy"
     task:
-      load: mft-full-qcmn-remote-QcMFTReadoutTask-proxy
+      load: mft-test2-full-qcmn-remote-QcMFTReadoutTask-proxy
   - name: "MERGER-QcMFTClusterTask1l-0"
     connect:
     - name: from_internal-dpl-clock_to_MERGER-QcMFTClusterTask1l-0
@@ -81,7 +81,7 @@ roles:
       target: "{{ Parent().Path }}.QcMFTClusterTask-proxy:from_QcMFTClusterTask-proxy_to_MERGER-QcMFTClusterTask1l-0"
       rateLogging: "{{ fmq_rate_logging }}"
     task:
-      load: mft-full-qcmn-remote-MERGER-QcMFTClusterTask1l-0
+      load: mft-test2-full-qcmn-remote-MERGER-QcMFTClusterTask1l-0
   - name: "MERGER-QcMFTDigitTask1l-0"
     connect:
     - name: from_internal-dpl-clock_to_MERGER-QcMFTDigitTask1l-0
@@ -95,7 +95,7 @@ roles:
       target: "{{ Parent().Path }}.QcMFTDigitTask-proxy:from_QcMFTDigitTask-proxy_to_MERGER-QcMFTDigitTask1l-0"
       rateLogging: "{{ fmq_rate_logging }}"
     task:
-      load: mft-full-qcmn-remote-MERGER-QcMFTDigitTask1l-0
+      load: mft-test2-full-qcmn-remote-MERGER-QcMFTDigitTask1l-0
   - name: "MERGER-QcMFTReadoutTask1l-0"
     connect:
     - name: from_internal-dpl-clock_to_MERGER-QcMFTReadoutTask1l-0
@@ -109,7 +109,7 @@ roles:
       target: "{{ Parent().Path }}.QcMFTReadoutTask-proxy:from_QcMFTReadoutTask-proxy_to_MERGER-QcMFTReadoutTask1l-0"
       rateLogging: "{{ fmq_rate_logging }}"
     task:
-      load: mft-full-qcmn-remote-MERGER-QcMFTReadoutTask1l-0
+      load: mft-test2-full-qcmn-remote-MERGER-QcMFTReadoutTask1l-0
   - name: "QC-CHECK-RUNNER-QcMFTClusterCheck"
     connect:
     - name: from_MERGER-QcMFTClusterTask1l-0_to_QC-CHECK-RUNNER-QcMFTClusterCheck
@@ -118,7 +118,7 @@ roles:
       target: "{{ Parent().Path }}.MERGER-QcMFTClusterTask1l-0:from_MERGER-QcMFTClusterTask1l-0_to_QC-CHECK-RUNNER-QcMFTClusterCheck"
       rateLogging: "{{ fmq_rate_logging }}"
     task:
-      load: mft-full-qcmn-remote-QC-CHECK-RUNNER-QcMFTClusterCheck
+      load: mft-test2-full-qcmn-remote-QC-CHECK-RUNNER-QcMFTClusterCheck
   - name: "QC-CHECK-RUNNER-QcMFTDigitCheck"
     connect:
     - name: from_MERGER-QcMFTDigitTask1l-0_to_QC-CHECK-RUNNER-QcMFTDigitCheck
@@ -127,7 +127,7 @@ roles:
       target: "{{ Parent().Path }}.MERGER-QcMFTDigitTask1l-0:from_MERGER-QcMFTDigitTask1l-0_to_QC-CHECK-RUNNER-QcMFTDigitCheck"
       rateLogging: "{{ fmq_rate_logging }}"
     task:
-      load: mft-full-qcmn-remote-QC-CHECK-RUNNER-QcMFTDigitCheck
+      load: mft-test2-full-qcmn-remote-QC-CHECK-RUNNER-QcMFTDigitCheck
   - name: "QC-CHECK-RUNNER-QcMFTReadoutCheck"
     connect:
     - name: from_MERGER-QcMFTReadoutTask1l-0_to_QC-CHECK-RUNNER-QcMFTReadoutCheck
@@ -136,7 +136,7 @@ roles:
       target: "{{ Parent().Path }}.MERGER-QcMFTReadoutTask1l-0:from_MERGER-QcMFTReadoutTask1l-0_to_QC-CHECK-RUNNER-QcMFTReadoutCheck"
       rateLogging: "{{ fmq_rate_logging }}"
     task:
-      load: mft-full-qcmn-remote-QC-CHECK-RUNNER-QcMFTReadoutCheck
+      load: mft-test2-full-qcmn-remote-QC-CHECK-RUNNER-QcMFTReadoutCheck
   - name: "internal-dpl-injected-dummy-sink"
     connect:
     - name: from_QC-CHECK-RUNNER-QcMFTClusterCheck_to_internal-dpl-injected-dummy-sink
@@ -155,7 +155,7 @@ roles:
       target: "{{ Parent().Path }}.QC-CHECK-RUNNER-QcMFTReadoutCheck:from_QC-CHECK-RUNNER-QcMFTReadoutCheck_to_internal-dpl-injected-dummy-sink"
       rateLogging: "{{ fmq_rate_logging }}"
     task:
-      load: mft-full-qcmn-remote-internal-dpl-injected-dummy-sink
+      load: mft-test2-full-qcmn-remote-internal-dpl-injected-dummy-sink
   - name: fairmq-shmmonitor
     enabled: "{{fmq_cleanup_enabled == 'true'}}"
     task:

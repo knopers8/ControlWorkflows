@@ -1,4 +1,4 @@
-name: mft-full-qcmn-local-mft-stf-decoder
+name: mft-test2-full-qcmn-local-mft-stf-decoder_t0
 defaults:
   log_task_output: none
   _module_cmdline: >-
@@ -11,12 +11,17 @@ wants:
   cpu: 0.01
   memory: 1
 bind:
-  - name: from_mft-stf-decoder_to_internal-dpl-injected-dummy-sink
+  - name: from_mft-stf-decoder_t0_to_QC-TASK-RUNNER-QcMFTReadoutTask
     type: push
     transport: shmem
     addressing: ipc
     rateLogging: "{{ fmq_rate_logging }}"
-  - name: from_mft-stf-decoder_to_QC-TASK-RUNNER-QcMFTDigitTask
+  - name: from_mft-stf-decoder_t0_to_internal-dpl-injected-dummy-sink
+    type: push
+    transport: shmem
+    addressing: ipc
+    rateLogging: "{{ fmq_rate_logging }}"
+  - name: from_mft-stf-decoder_t0_to_QC-TASK-RUNNER-QcMFTDigitTask
     type: push
     transport: shmem
     addressing: ipc
@@ -46,7 +51,7 @@ command:
     - "--resources-monitoring"
     - "'{{ resources_monitoring }}'"
     - "--id"
-    - "'mft-stf-decoder'"
+    - "'mft-stf-decoder_t0'"
     - "--shm-monitor"
     - "'false'"
     - "--log-color"
@@ -70,12 +75,12 @@ command:
     - "--configKeyValues"
     - "'MFTClustererParam.noiseFilePath=/tmp/_DUMMY_;MFTClustererParam.dictFilePath=/tmp/_DUMMY_'"
     - "--dataspec"
-    - "'TF:MFT/RAWDATA_SMP'"
+    - "'TF:MFT/RAWDATA'"
     - "--digits"
     - "--early-forward-policy"
     - "'never'"
     - "--fairmq-ipc-prefix"
-    - "'/tmp'"
+    - "'/tmp/pkonopka'"
     - "--fairmq-rate-logging"
     - "'0'"
     - "--fairmq-recv-buffer-size"
@@ -91,14 +96,12 @@ command:
     - "''"
     - "--no-clusters"
     - "--pipeline"
-    - "''"
+    - "'mft-stf-decoder:3'"
     - "--readers"
     - "'1'"
     - "--runmft"
     - "--severity"
     - "'info'"
-    - "--shm-allocation"
-    - "'rbtree_best_fit'"
     - "--shm-mlock-segment"
     - "'false'"
     - "--shm-mlock-segment-on-creation"
