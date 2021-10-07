@@ -29,6 +29,7 @@ sed -i "s/""${ESCAPED_QC_GEN_CONFIG_PATH}""/{{ ""${QC_CONFIG_PARAM}"" }}/g" work
 
 
 
+QC_FINAL_CONFIG_PATH='consul-json://{{ consul_endpoint }}/o2/components/qc/ANY/any/mft-full-qcmn'
 WF_NAME=mft-full-qcmn-remote
 
 o2-qc --config $QC_GEN_CONFIG_PATH --remote -b --o2-control $WF_NAME
