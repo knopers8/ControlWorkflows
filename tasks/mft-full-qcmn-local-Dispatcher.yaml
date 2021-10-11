@@ -72,7 +72,7 @@ command:
     - "--dispatchers"
     - "'1'"
     - "--fairmq-ipc-prefix"
-    - "'/tmp/pkonopka'"
+    - "'/tmp'"
     - "--fairmq-rate-logging"
     - "'0'"
     - "--fairmq-recv-buffer-size"
