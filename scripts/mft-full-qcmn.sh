@@ -10,7 +10,7 @@ QC_FINAL_CONFIG_PATH='consul-json://{{ consul_endpoint }}/o2/components/qc/ANY/a
 QC_CONFIG_PARAM='qc_config_uri'
 
 DS_GEN_CONFIG_PATH='json://'`pwd`'/etc/mft-full-digits-sampling.json'
-DS_FINAL_CONFIG_PATH='consul-json://{{ consul_endpoint }}/o2/components/qc/ANY/any/mft-full-digits-sampling'
+DS_FINAL_CONFIG_PATH='consul-json://{{ consul_endpoint }}/o2/components/qc/ANY/any/mft-full-digits-sampling-wa'
 DS_CONFIG_PARAM='ds_config_uri'
 
 source helpers.sh

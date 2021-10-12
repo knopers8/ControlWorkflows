@@ -4,8 +4,8 @@
       "id": "mft-raw-rnd",
       "active": "true",
       "machines": [],
-      "query" : "raw:MFT/RAWDATA",
-      "outputs" : "raw-sampled:MFT/RAWDATA_SMP",
+      "query" : "raw:MFT/RAWDATA;B:FLP/DISTSUBTIMEFRAME/0",
+      "outputs" : "raw-sampled:MFT/RAWDATA_SMP;b:FLP/DUMMY/0",
       "samplingConditions": [
         {
           "condition": "random",
