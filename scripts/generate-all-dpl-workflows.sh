@@ -82,3 +82,4 @@ check_pwd
 ./tof-qcmn-compressor.sh
 ./tof-full-qcmn.sh
 ./tpc-full-qcmn.sh
+./tpc-qc-post-calibration.sh
