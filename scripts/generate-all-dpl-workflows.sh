@@ -83,3 +83,4 @@ check_pwd
 ./tof-full-qcmn.sh
 ./tpc-full-qcmn.sh
 ./tpc-qc-post-calibration.sh
+./tpc-qc-post-trending.sh

@@ -566,6 +566,7 @@ defaults:
       - qcmn-daq-remote
       - tpc-full-qcmn-remote
       - tpc-qc-post-calibration
+      - tpc-qc-post-trending
   tpc_dcs_sor_parameters: !public
     value: "{}"
     type: string
