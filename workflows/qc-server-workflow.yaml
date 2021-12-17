@@ -99,6 +99,7 @@ defaults:
     panel: ALIECS_Workflows
     values:
       - none
+      - tpc-qc-post-trending-remote
   hmp_qc_remote_workflow: !public
     value: "none"
     type: string
