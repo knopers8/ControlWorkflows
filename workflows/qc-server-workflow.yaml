@@ -20,8 +20,6 @@ defaults:
     panel: ALIECS_Workflows
     values:
       - none
-      - cpv-physics-qcmn-epn-remote
-      - qcmn-daq-remote
   emc_qc_remote_workflow: !public
     value: "none"
     type: string
@@ -31,11 +29,6 @@ defaults:
     panel: ALIECS_Workflows
     values:
       - none
-      - emc-qcmn-flp-remote
-      - emc-qcmn-epn-remote
-      - emc-qcmn-epnall-remote
-      - emc-qcmn-flpepn-remote
-      - qcmn-daq-remote
   fdd_qc_remote_workflow: !public
     value: "none"
     type: string
@@ -45,8 +38,6 @@ defaults:
     panel: ALIECS_Workflows
     values:
       - none
-      - fdd-qcmn-remote
-      - qcmn-daq-remote
   ft0_qc_remote_workflow: !public
     value: "none"
     type: string
@@ -56,8 +47,6 @@ defaults:
     panel: ALIECS_Workflows
     values:
       - none
-      - ft0-qcmn-remote
-      - qcmn-daq-remote
   fv0_qc_remote_workflow: !public
     value: "none"
     type: string
@@ -67,8 +56,6 @@ defaults:
     panel: ALIECS_Workflows
     values:
       - none
-      - fv0-qcmn-remote
-      - qcmn-daq-remote
   its_qc_remote_workflow: !public
     value: "none"
     type: string
@@ -78,13 +65,6 @@ defaults:
     panel: ALIECS_Workflows
     values:
       - none
-      - its-qcmn-fhr-fee-remote
-      - its-qcmn-fhr-fee-no-ds-remote
-      - its-qcmn-fhr-fee-no-ds-entire-remote
-      - its-qcmn-cluster-track-remote
-      - its-qcmn-flp-epn-remote
-      - its-qcmn-flp-epn-no-ds-remote
-      - qcmn-daq-remote
   hmp_qc_remote_workflow: !public
     value: "none"
     type: string
@@ -94,8 +74,6 @@ defaults:
     panel: ALIECS_Workflows
     values:
       - none
-      - hmpid-raw-qcmn-remote
-      - qcmn-daq-remote
   mch_qc_remote_workflow: !public
     value: "none"
     type: string
@@ -105,10 +83,6 @@ defaults:
     panel: ALIECS_Workflows
     values:
       - none
-      - mch-qcmn-epn-digits-remote
-      - mch-qcmn-flp-digits-remote
-      - qcmn-daq-remote
-      - mch-digits-epn
   mft_qc_remote_workflow: !public
     value: "none"
     type: string
@@ -118,11 +92,6 @@ defaults:
     panel: ALIECS_Workflows
     values:
       - none
-      - mft-raw-direct-qcmn-remote
-      - mft-raw-qcmn-remote
-      - mft-full-qcmn-remote
-      - mft-raw-cluster-qcmn-remote
-      - qcmn-daq-remote
   mid_qc_remote_workflow: !public
     value: "none"
     type: string
@@ -132,8 +101,6 @@ defaults:
     panel: ALIECS_Workflows
     values:
       - none
-      - mid-qcmn-epn-digits
-      - qcmn-daq-remote
   phs_qc_remote_workflow: !public
     value: "none"
     type: string
@@ -143,10 +110,6 @@ defaults:
     panel: ALIECS_Workflows
     values:
       - none
-      - phos-compressor-raw-qcmn-remote
-      - phos-compressor-raw-qcmnt3-remote
-      - phos-raw-clusters-remote
-      - qcmn-daq-remote
   tof_qc_remote_workflow: !public
     value: "none"
     type: string
@@ -156,9 +119,6 @@ defaults:
     panel: ALIECS_Workflows
     values:
       - none
-      - qcmn-daq-remote
-      - tof-full-qcmn-remote
-      - tof-qcmn-compressor-remote
   tpc_qc_remote_workflow: !public
     value: "none"
     type: string
@@ -168,8 +128,7 @@ defaults:
     panel: ALIECS_Workflows
     values:
       - none
-      - qcmn-daq-remote
-      - tpc-full-qcmn-remote
+      - tpc-qc-post-trending-remote
   trd_qc_remote_workflow: !public
     value: "none"
     type: string
@@ -179,7 +138,6 @@ defaults:
     panel: ALIECS_Workflows
     values:
       - none
-      - qcmn-daq-remote
   tst_qc_remote_workflow: !public
     value: "none"
     type: string
@@ -189,7 +147,6 @@ defaults:
     panel: ALIECS_Workflows
     values:
       - none
-      - qcmn-daq-remote
   zdc_qc_remote_workflow: !public
     value: "none"
     type: string
@@ -199,7 +156,6 @@ defaults:
     panel: ALIECS_Workflows
     values:
       - none
-      - qcmn-daq-remote
   ###############################
   # Logging Panel
   ###############################
