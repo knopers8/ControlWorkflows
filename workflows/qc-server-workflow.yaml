@@ -1,4 +1,4 @@
-name: !public readout-dataflow
+name: !public qc-server-workflow
 defaults:
   ###############################
   # DCS and FLP Processing Panel
