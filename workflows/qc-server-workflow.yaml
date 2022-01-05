@@ -37,160 +37,16 @@ defaults:
   ###############################
   # DCS and FLP Processing Panel
   ###############################
-  qc_remote_enabled: !public # TODO: if false, all per-detector remote QC workflows vars should be disabled
-    value: "false"
-    type: bool
-    label: "QC node workflows"
-    description: "Enable/disable running workflows on the QC nodes"
-    widget: checkBox
-    panel: ALIECS_Workflows
-    index: -200
-  cpv_qc_remote_workflow: !public
+  qc_remote_workflow: !public
     value: "none"
     type: string
-    label: "CPV QC node workflow"
-    description: "Workflow to execute on QC servers for this detector"
-    widget: dropDownBox
-    panel: ALIECS_Workflows
-    values:
-      - none
-  emc_qc_remote_workflow: !public
-    value: "none"
-    type: string
-    label: "EMCAL QC node workflow"
-    description: "Workflow to execute on QC servers for this detector"
-    widget: dropDownBox
-    panel: ALIECS_Workflows
-    values:
-      - none
-  fdd_qc_remote_workflow: !public
-    value: "none"
-    type: string
-    label: "FDD QC node workflow"
-    description: "Workflow to execute on QC servers for this detector"
-    widget: dropDownBox
-    panel: ALIECS_Workflows
-    values:
-      - none
-  ft0_qc_remote_workflow: !public
-    value: "none"
-    type: string
-    label: "FT0 QC node workflow"
-    description: "Workflow to execute on QC servers for this detector"
-    widget: dropDownBox
-    panel: ALIECS_Workflows
-    values:
-      - none
-  fv0_qc_remote_workflow: !public
-    value: "none"
-    type: string
-    label: "FV0 QC node workflow"
-    description: "Workflow to execute on QC servers for this detector"
-    widget: dropDownBox
-    panel: ALIECS_Workflows
-    values:
-      - none
-  its_qc_remote_workflow: !public
-    value: "none"
-    type: string
-    label: "ITS QC node workflow"
-    description: "Workflow to execute on QC servers for this detector"
+    label: "QC node workflow"
+    description: "Workflow to execute on QC servers"
     widget: dropDownBox
     panel: ALIECS_Workflows
     values:
       - none
       - tpc-qc-post-trending-remote
-  hmp_qc_remote_workflow: !public
-    value: "none"
-    type: string
-    label: "HMPID QC node workflow"
-    description: "Workflow to execute on QC servers for this detector"
-    widget: dropDownBox
-    panel: ALIECS_Workflows
-    values:
-      - none
-  mch_qc_remote_workflow: !public
-    value: "none"
-    type: string
-    label: "MCH QC node workflow"
-    description: "Workflow to execute on QC servers for this detector"
-    widget: dropDownBox
-    panel: ALIECS_Workflows
-    values:
-      - none
-  mft_qc_remote_workflow: !public
-    value: "none"
-    type: string
-    label: "MFT QC node workflow"
-    description: "Workflow to execute on QC servers for this detector"
-    widget: dropDownBox
-    panel: ALIECS_Workflows
-    values:
-      - none
-  mid_qc_remote_workflow: !public
-    value: "none"
-    type: string
-    label: "MID QC node workflow"
-    description: "Workflow to execute on QC servers for this detector"
-    widget: dropDownBox
-    panel: ALIECS_Workflows
-    values:
-      - none
-  phs_qc_remote_workflow: !public
-    value: "none"
-    type: string
-    label: "PHOS QC node workflow"
-    description: "Workflow to execute on QC servers for this detector"
-    widget: dropDownBox
-    panel: ALIECS_Workflows
-    values:
-      - none
-  tof_qc_remote_workflow: !public
-    value: "none"
-    type: string
-    label: "TOF QC node workflow"
-    description: "Workflow to execute on QC servers for this detector"
-    widget: dropDownBox
-    panel: ALIECS_Workflows
-    values:
-      - none
-  tpc_qc_remote_workflow: !public
-    value: "none"
-    type: string
-    label: "TPC QC node workflow"
-    description: "Workflow to execute on QC servers for this detector"
-    widget: dropDownBox
-    panel: ALIECS_Workflows
-    values:
-      - none
-      - tpc-qc-post-trending-remote
-  trd_qc_remote_workflow: !public
-    value: "none"
-    type: string
-    label: "TRD QC node workflow"
-    description: "Workflow to execute on QC servers for this detector"
-    widget: dropDownBox
-    panel: ALIECS_Workflows
-    values:
-      - none
-  tst_qc_remote_workflow: !public
-    value: "none"
-    type: string
-    label: "TST QC node workflow"
-    description: "Workflow to execute on QC servers for this detector"
-    widget: dropDownBox
-    panel: ALIECS_Workflows
-    values:
-      - none
-  zdc_qc_remote_workflow: !public
-    value: "none"
-    type: string
-    label: "ZDC QC node workflow"
-    description: "Workflow to execute on QC servers for this detector"
-    widget: dropDownBox
-    panel: ALIECS_Workflows
-    values:
-      - none
   ###############################
   # Logging Panel
   ###############################
@@ -239,13 +95,11 @@ defaults:
   # Other variables
   ###############################
   detectors: "{{ DetectorsForHosts(hosts) }}"
-  dpl_command: none
   drop_caches_enabled: "true"
   drop_caches_timeout: "30s"
   fmq_initial_shm_cleanup_enabled: "true"
   fmq_initial_shm_cleanup_timeout: "30s"
   fmq_cleanup_enabled: "true"
-  monitoring_dd_url: "no-op://"
   monitoring_dpl_url: "no-op://"
   monitoring_qc_url: "no-op://"
   o2_install_path: "/opt/o2"
@@ -254,7 +108,6 @@ defaults:
   extra_env_vars: ""
 roles:
   - name: qc-servers
-    enabled: "{{ qc_remote_enabled == 'true' }}"
     constraints:
       - attribute: machine_type
         value: qcserver
@@ -264,22 +117,6 @@ roles:
       user: qc
       session_id: "{{ environment_id }}" # we can't use "default" because other workflows might already exist on the same QC server
     roles:
-      - name: qc-remote-workflow-{{ det }}
-        for:
-          range: "{{ detectors }}"
-          var: det
-        vars:
-          qc_remote_workflow: "{{ PrefixedOverride( 'qc_remote_workflow', ToLower( det ) ) }}"
-        roles:
-          - name: dpl
-            enabled: "{{ qc_remote_workflow != 'none' }}"
-            include: "{{ qc_remote_workflow }}"
-          # When qc_remote_enabled is true, it will try to deploy a qc_remote_workflow for every detector in the list
-          # however if the {{det}}_qc_remote_workflow is none there is a ghost role deployed which is never active
-          # for that cases we deploy a plain echo task which will transition the role and eventually the wf to active
-          - name: echo task
-            enabled: "{{ qc_remote_workflow == 'none' }}"
-            vars:
-              shell_command: echo
-            task:
-              load: "shell-command"
+      - name: qc-remote-workflow
+        enabled: "{{ qc_remote_workflow != 'none' }}"
+        include: "{{ qc_remote_workflow }}"
