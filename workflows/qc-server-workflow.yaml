@@ -11,21 +11,6 @@ defaults:
     widget: checkBox
     panel: Basic_Configuration
     index: -200
-  dd_enabled: !public
-    value: "true"
-    type: bool
-    label: "Data Distribution (FLP)"
-    description: "Enable/disable Data Distribution components running on FLPs (StfBuilder and StfSender)"
-    widget: checkBox
-    panel: Basic_Configuration
-    index: -100
-  epn_enabled: !public # TODO: this should be the single var that enables both ODC and DD Scheduler
-    value: "false"
-    type: bool
-    label: "EPN"
-    description: "Enable/disable EPN"
-    widget: checkBox
-    panel: Basic_Configuration
   ###############################
   # DCS and FLP Processing Panel
   ###############################
