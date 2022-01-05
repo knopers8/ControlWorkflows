@@ -3,11 +3,11 @@ defaults:
   ###############################
   # Basic Configuration Panel
   ###############################
-  dcs_enabled: # TODO: if false, DCS panel should be disabled
+  dummy: !public
     value: "false"
     type: bool
-    label: "DCS"
-    description: "Enable/disable DCS SOR/EOR commands"
+    label: "dummy"
+    description: "Just a dummy to avoid breaking the GUI"
     widget: checkBox
     panel: Basic_Configuration
     index: -200
