@@ -3,7 +3,7 @@ defaults:
   ###############################
   # Basic Configuration Panel
   ###############################
-  dcs_enabled: !public # TODO: if false, DCS panel should be disabled
+  dcs_enabled: # TODO: if false, DCS panel should be disabled
     value: "false"
     type: bool
     label: "DCS"
