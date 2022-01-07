@@ -146,4 +146,3 @@ roles:
           trigger: DESTROY
           timeout: 10s
           critical: false
-
