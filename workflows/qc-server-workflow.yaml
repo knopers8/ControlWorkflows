@@ -108,6 +108,8 @@ roles:
     constraints:
       - attribute: machine_type
         value: qcserver
+      - attribute: machine_id
+        value: "{{ qc_remote_machine }}"
     defaults:
       qc_remote_workflow: none
     vars:
@@ -130,7 +132,7 @@ roles:
       - name: fairmq-shmcleanup
         enabled: "{{fmq_initial_shm_cleanup_enabled == 'true'}}"
         vars:
-          shell_command: "source /etc/profile.d/o2.sh && O2_PARTITION={{environment_id}} O2_ROLE={{it}} o2-aliecs-shmcleaner"
+          shell_command: "source /etc/profile.d/o2.sh && O2_PARTITION={{environment_id}} O2_ROLE={{qc_remote_machine}} o2-aliecs-shmcleaner"
           user: root
         task:
           load: "shell-command"
