@@ -3,24 +3,13 @@ defaults:
   ###############################
   # Basic Configuration Panel
   ###############################
-  dummy: !public
-    value: "false"
-    type: bool
-    label: "dummy"
-    description: "Just a dummy to avoid breaking the GUI"
-    widget: checkBox
-    panel: Basic_Configuration
-    index: -200
-  ###############################
-  # DCS and FLP Processing Panel
-  ###############################
   qc_remote_workflow: !public
     value: "none"
     type: string
     label: "QC node workflow"
     description: "Workflow to execute on QC servers"
     widget: dropDownBox
-    panel: ALIECS_Workflows
+    panel: Basic_Configuration
     values:
       - none
       - tpc-qc-post-trending-remote
@@ -30,7 +19,7 @@ defaults:
     label: "QC node name"
     description: "QC server where the workflow should run"
     widget: dropDownBox
-    panel: ALIECS_Workflows
+    panel: Basic_Configuration
     values:
       - "select machine"
       - alio2-cr1-qc01
