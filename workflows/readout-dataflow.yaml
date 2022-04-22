@@ -1761,9 +1761,3 @@ roles:
           trigger: enter_ERROR
           timeout: 5s
           critical: false
-      - name: destroy
-        call:
-          func: kafka.Done()
-          trigger: after_DESTROY
-          timeout: 5s
-          critical: false
