@@ -1737,6 +1737,12 @@ roles:
           trigger: before_STOP_ACTIVITY
           timeout: 10s
           critical: false
+      - name: stop_error
+        call:
+          func: ccdb.RunStop()
+          trigger: before_GO_ERROR
+          timeout: 10s
+          critical: false
   - name: bookkeeping
     enabled: "{{bookkeeping_enabled == 'true'}}"
     roles:
