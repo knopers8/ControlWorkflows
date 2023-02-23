@@ -1904,10 +1904,16 @@ roles:
   - name: ccdb
     enabled: "{{ccdb_enabled == 'true'}}"
     roles:
-      - name: start
+      - name: before_start
         call:
           func: ccdb.RunStart()
           trigger: before_START_ACTIVITY
+          timeout: "{{ ccdb_start_timeout }}"
+          critical: false
+      - name: after_start
+        call:
+          func: ccdb.RunStart()
+          trigger: after_START_ACTIVITY
           timeout: "{{ ccdb_start_timeout }}"
           critical: false
       - name: stop
