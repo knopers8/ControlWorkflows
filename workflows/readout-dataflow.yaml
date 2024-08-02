@@ -2074,6 +2074,7 @@ roles:
         call:
           func: ccdb.RunStart()
           trigger: before_START_ACTIVITY+100
+          await: after_START_ACTIVITY
           timeout: "{{ ccdb_start_timeout }}"
           critical: false
       - name: stop
