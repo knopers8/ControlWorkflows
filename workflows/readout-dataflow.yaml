@@ -1724,6 +1724,17 @@ roles:
           trigger: DESTROY
           timeout: "{{ roc_cleanup_timeout }}"
           critical: false
+      - name: test-parent
+        roles:
+          - name: test-child
+            enabled: "{{ test_parent_enabled == 'true'}}"
+            vars:
+              shell_command: "source /etc/profile.d/o2.sh && O2_PARTITION={{environment_id}} O2_ROLE={{it}} echo"
+              user: root
+            task:
+              load: "shell-command"
+              trigger: before_DEPLOY
+              timeout: 10s
   - name: qc-servers
     enabled: "{{ qc_remote_enabled == 'true' }}"
     constraints:
