@@ -1587,6 +1587,7 @@ roles:
           readout_cfg_uri: '{{dd_enabled == "true" ? readout_cfg_uri_stfb : readout_cfg_uri_standalone}}'
         task:
           load: readout
+          critical: false
       - name: "data-distribution"
         enabled: "{{dd_enabled == 'true' && (qcdd_enabled == 'false' && minimal_dpl_enabled == 'false' && strings.IsFalsy(dpl_workflow) && strings.IsFalsy(dpl_command))}}"
         roles:
