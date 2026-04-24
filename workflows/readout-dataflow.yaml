@@ -1888,7 +1888,7 @@ roles:
       - name: initialize
         call:
           func: ddsched.PartitionInitialize()
-          trigger: before_CONFIGURE
+          trigger: after_CONFIGURE-99
           await: after_CONFIGURE-1
           timeout: "{{ ddsched_initialize_timeout }}"
           critical: true
@@ -1922,7 +1922,7 @@ roles:
         call:
           func: odc.PartitionInitialize()
           trigger: before_DEPLOY
-          await: after_DEPLOY-1
+          await: after_CONFIGURE-100
           timeout: "{{ odc_partitioninitialize_timeout }}"
           critical: true
       - name: configure
