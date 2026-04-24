@@ -1921,7 +1921,7 @@ roles:
       - name: part-init
         call:
           func: odc.PartitionInitialize()
-          trigger: before_CONFIGURE
+          trigger: before_DEPLOY
           await: after_CONFIGURE-2
           timeout: "{{ odc_partitioninitialize_timeout }}"
           critical: true
