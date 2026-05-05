@@ -1922,13 +1922,13 @@ roles:
         call:
           func: odc.PartitionInitialize()
           trigger: before_DEPLOY
-          await: after_CONFIGURE-2
+          await: after_DEPLOY-1
           timeout: "{{ odc_partitioninitialize_timeout }}"
           critical: true
       - name: configure
         call:
           func: odc.Configure()
-          trigger: after_CONFIGURE-1
+          trigger: before_CONFIGURE
           await: after_CONFIGURE-1
           timeout: "{{ odc_configure_timeout }}"
           critical: true
